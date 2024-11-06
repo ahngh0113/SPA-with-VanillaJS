@@ -16,8 +16,8 @@ class Router {
     return window.location.pathname;
   }
 
-  addRoute(path, handler) {
-    this.routes[path] = handler;
+  addRoute(path, handler, routerGuard = null) {
+    this.routes[path] = { handler, routerGuard };
   }
 
   addNotFoundRoute(handler) {
@@ -25,26 +25,20 @@ class Router {
   }
 
   push(path) {
-    const validPath = this.routerGuard(path);
-    history.pushState({}, "", validPath);
+    const route = this.routes[path];
+    if (route) {
+      const validPath = route.routerGuard ? route.routerGuard(path) : path;
+      history.pushState({}, "", validPath);
 
-    const handler = this.routes[validPath];
-    if (handler) {
-      handler();
+      const handler = this.routes[validPath]?.handler;
+      if (handler) {
+        handler();
+      } else {
+        this.notfound();
+      }
     } else {
       this.notfound();
     }
-  }
-
-  routerGuard(path) {
-    if (path === LOGIN_PAGE && !!userStore.getState()[USERNAME]) {
-      return HOME_PAGE;
-    }
-    if (path === PROFILE_PAGE && !userStore.getState()[USERNAME]) {
-      return LOGIN_PAGE;
-    }
-
-    return path;
   }
 }
 
