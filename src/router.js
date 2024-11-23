@@ -1,6 +1,3 @@
-import { HOME_PAGE, LOGIN_PAGE, PROFILE_PAGE, USERNAME } from "./constants";
-import userStore from "./store/userStore";
-
 class Router {
   constructor() {
     this.routes = [];
