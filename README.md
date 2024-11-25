@@ -25,7 +25,7 @@
 ### 코드
 
 <details>
-<summary>src/router.js</summary>
+<summary>[구현 코드] src/router.js</summary>
 
 ```js
 class Router {
@@ -78,7 +78,7 @@ export default router;
 </details>
 
 <details>
-<summary>src/app.js</summary>
+<summary>[사용 코드] src/app.js</summary>
 
 ```js
 import router from "./router";
@@ -175,7 +175,7 @@ export default function App($root) {
 ### 코드
 
 <details>
-<summary>src/abstract/AbstractComponent.js</summary>
+<summary>[구현 코드] src/abstract/AbstractComponent.js</summary>
 
 ```js
 export default class AbstractComponent {
@@ -210,7 +210,7 @@ export default class AbstractComponent {
 </details>
 
 <details>
-<summary>src/pages/LoginPage.js</summary>
+<summary>[사용 코드] src/pages/LoginPage.js</summary>
 
 ```js
 import router from "../router";
@@ -316,7 +316,7 @@ export default class LoginPage extends AbstractComponent {
 ### 코드
 
 <details>
-<summary>src/store/thinkStroe.js</summary>
+<summary>[구현 코드] src/store/thinkStroe.js</summary>
 
 ```js
 import { USERNAME } from "../constants";
@@ -411,7 +411,7 @@ export default thinkStore;
 </details>
 
 <details>
-<summary>src/pages/HomePage.js</summary>
+<summary>[사용 코드] src/pages/HomePage.js</summary>
 
 ```js
 import Footer from "../components/Footer";
